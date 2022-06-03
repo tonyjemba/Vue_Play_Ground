@@ -12,7 +12,9 @@ const routes = [
   {
     path: "/destination/:id/:slug",
     name: "destination.show",
-    component: () => import("../pages/DestinationShow.vue")
+    component: () => import("../pages/DestinationShow.vue"),
+    //accessing the route id as a prop helps decouple components from the router
+    props: true
   }
 ];
 
