@@ -10,27 +10,7 @@ const routes = [
   },
 
   {
-    path: "/brazil",
-    name: "brazil",
-    component: () => import("../pages/Brazil.vue"),
-  },
-  {
-    path: "/jamaica",
-    name: "jamaica",
-    component: () => import("../pages/Jamaica.vue"),
-  },
-  {
-    path: "/panama",
-    name: "panama",
-    component: () => import("../pages/Panama.vue"),
-  },
-  {
-    path: "/hawaii",
-    name: "hawaii",
-    component: () => import("../pages/Hawaii.vue"),
-  },
-  {
-    path: "/destination/:id",
+    path: "/destination/:id/:slug",
     name: "destination.show",
     component: () => import("../pages/DestinationShow.vue")
   }

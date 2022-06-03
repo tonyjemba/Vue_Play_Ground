@@ -7,7 +7,9 @@ import TheNavigation from "./components/TheNavigation.vue"
 <TheNavigation/>
 
 <div class="container">
-    <router-view></router-view>
+    <!-- the key enables vue to rerender the path everytime the pathname changes this solves the issue of path 
+    changing and the page not updating -->
+    <router-view :key="$route.path"></router-view>
 </div>
 </template>
 
