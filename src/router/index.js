@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-import DestinationShowVue from "../pages/DestinationShow.vue";
 import Home from "../pages/Home.vue";
 
 const routes = [
@@ -14,7 +13,13 @@ const routes = [
     name: "destination.show",
     component: () => import("../pages/DestinationShow.vue"),
     //accessing the route id as a prop helps decouple components from the router
-    props: true
+    props: route =>({id: parseInt(route.params.id)})
+  },
+  {
+    path: "/destination/:id/:slug/:experienceSlug",
+    name:"experience.show",
+    component:() => import("../pages/ExperienceShow.vue"),
+    props: route => ({...route.params, id: parseInt(route.params.id)})
   }
 ];
 
