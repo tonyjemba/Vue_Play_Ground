@@ -52,6 +52,11 @@ const router = createRouter({
   routes,
   //class that styles the active route link
   linkActiveClass: "my-active-link-class",
+  //page scroll behavior on route change
+  scrollBehavior(to, from,savedPosition){
+    // the page will always go to top if no saved state (we use promise so that it doesnt messup with the page animation)
+return savedPosition || new Promise((resolve)=>{setTimeout(()=>resolve({top: 0,behavior:"smooth"}),1000)})
+  }
 });
 
 export default router;
