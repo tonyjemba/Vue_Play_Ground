@@ -1,5 +1,5 @@
 <script setup>
-const props = defineProps({
+ defineProps({
     experience: {type: Object, required: true}
 })
 </script>

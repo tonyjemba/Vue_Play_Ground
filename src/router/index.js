@@ -13,13 +13,19 @@ const routes = [
     name: "destination.show",
     component: () => import("../pages/DestinationShow.vue"),
     //accessing the route id as a prop helps decouple components from the router
-    props: route =>({id: parseInt(route.params.id)})
+    props: route =>({id: parseInt(route.params.id)}),
+    children:[
+      {
+        path: ":experienceSlug",
+        name:"experienceShow",
+        component:() => import("../pages/ExperienceShow.vue"),
+        // props: route => ({...route.params, id: parseInt(route.params.id)})
+      }
+    ]
   },
+  //not found route
   {
-    path: "/destination/:id/:slug/:experienceSlug",
-    name:"experience.show",
-    component:() => import("../pages/ExperienceShow.vue"),
-    props: route => ({...route.params, id: parseInt(route.params.id)})
+    path: '/:pathMatch(.*)*', name: 'NotFound', component: import("../pages/NotFound.vue")
   }
 ];
 

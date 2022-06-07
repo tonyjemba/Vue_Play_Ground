@@ -1,19 +1,20 @@
 <script setup>
 import sourceData from "../data.json";
 import { computed } from "vue";
+import { useRoute } from "vue-router";
 
-const props = defineProps({
-  id: { type: Number, required: true },
-  experienceSlug: { type: String, required: true },
-});
-
+const router = useRoute();
+// const props = defineProps({
+//   id: { type: Number, required: true },
+//   experienceSlug: { type: String, required: true },
+// });
 const theDestination = computed(() =>
-  sourceData.destinations.find((destination) => destination.id === props.id)
+  sourceData.destinations.find(destination => destination.id === router.params.id)
 );
 
 const experience = computed(() =>
   theDestination.experiences.find(
-    (experience) => experience.slug === props.experienceSlug
+     experience => experience.slug === router.params.experienceSlug
   )
 );
 </script>
