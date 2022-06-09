@@ -4,10 +4,10 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 
 const router = useRoute();
-// const props = defineProps({
-//   id: { type: Number, required: true },
-//   experienceSlug: { type: String, required: true },
-// });
+const props = defineProps({
+  id: { type: Number, required: true },
+  experienceSlug: { type: String, required: true },
+});
 const theDestination = computed(() =>
   sourceData.destinations.find(destination => destination.id === router.params.id)
 );
